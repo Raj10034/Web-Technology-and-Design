@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animated Ad</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        }
+
+        .ad-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff4757;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            opacity: 0;
+            animation: fadeInOut 6s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ad-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .ad-container h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .ad-container p {
+            margin: 5px 0 15px;
+            font-size: 16px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #ff4757;
+            border: none;
+            padding: 5px 12px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .close-btn:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #ff4757;
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #ff2e44;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="ad-container" id="ad">
+        <button class="close-btn" onclick="closeAd()">&times;</button>
+        <h2>🔥 Limited Time Offer!</h2>
+        <p>Get 50% off on your first purchase. Don't miss out!</p>
+        <a href="#" class="cta-button">Shop Now</a>
+    </div>
+
+    <script>
+        function closeAd() {
+            document.getElementById('ad').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
